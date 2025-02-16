@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Almost There!</h2>
+    <p>Just a few more steps before your pizza is on its way. Enter your delivery details, and we’ll handle the rest.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-group mb-3">
+            <label for="{{ form.name.id_for_label }}" class="form-label">Name:</label>
+            {{ form.name }}
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ form.address_line_1.id_for_label }}" class="form-label">Address Line 1:</label>
+            {{ form.address_line_1 }}
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ form.address_line_2.id_for_label }}" class="form-label">Address Line 2 (optional):</label>
+            {{ form.address_line_2 }}
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ form.city.id_for_label }}" class="form-label">City:</label>
+            {{ form.city }}
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ form.county.id_for_label }}" class="form-label">County (optional):</label>
+            {{ form.county }}
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ form.eircode.id_for_label }}" class="form-label">Eircode (optional):</label>
+            {{ form.eircode }}
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ form.card_number.id_for_label }}" class="form-label">Credit Card Number:</label>
+            {{ form.card_number }}
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ form.cvv.id_for_label }}" class="form-label">CVV:</label>
+            {{ form.cvv }}
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ form.expiry_date.id_for_label }}" class="form-label">Expiry Date (MM/YY):</label>
+            {{ form.expiry_date }}
+        </div>
+
+        <div class="d-flex justify-content-center gap-2">
+			<button type="submit" class="btn btn-primary">Continue</button>
+            <a href="{% url 'create' %}" class="btn btn-secondary">Back</a>
+            <a href="{% url 'index' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

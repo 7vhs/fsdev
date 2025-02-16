@@ -1,0 +1,96 @@
+body h1, body h2, body h3, body h4, body h5, body h6, body li {
+    color: #9e8644;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+}
+
+.navbar-brand {
+    color: #9e8644;
+    font-family: 'Merriweather', serif;
+}
+
+.navbar-brand:hover, .navbar-brand:focus, .navbar-brand:active {
+    color: #756434;
+}
+
+p {
+    color: #1c1612;
+}
+
+body {
+    background: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+body, html {
+    height: 100%;
+    margin: 0%;
+}
+
+/* Make the header sticky */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #e0ddd3;
+    z-index: 1000;  /* Ensures the header is above other content */
+    padding: 0px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: auto;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+
+.mt-4 {
+    background-color: #e0ddd3;
+    padding: 10px;
+    padding-bottom: 60px;
+    margin: 30px auto;
+    width: 60%;
+    max-width: 900px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+.btn {
+    color: #e0ddd3;
+    background-color: #ab392c;
+    border: none;
+}
+
+/* Button hover styles */
+.btn:hover, .btn:focus, .btn:active {
+    color: #e0ddd3; /* Keep the text color the same on hover */
+    background-color: #913329; /* Make the background darker red on hover */
+    border: none; /* Ensure border remains removed */
+}
+
+footer {
+    background-color: #e0ddd3;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+}
+
+.footer a {
+    color: #9e8644 !important;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

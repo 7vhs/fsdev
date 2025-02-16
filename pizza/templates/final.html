@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Thank You for Your Order!</h2>
+    <p>Your delicious pizza is being prepared and will be on its way soon. 
+        Check your order details below, and get ready to enjoy!</p>
+
+    <!-- Delivery details -->
+    <div class="delivery-details mb-4">
+        <h4>Delivery Details:</h4>
+        <p><strong>Name:</strong> {{ order.delivery_name }}</p>
+        <p><strong>Address:</strong> {{ order.delivery_address }}
+            <br>{{ order.delivery_eircode }}
+        </p>
+        <p><strong>Estimated Delivery Time:</strong> {{ order.delivery_time|date:"F d, Y H:i" }}</p>
+    </div>
+
+    <!-- Pizza details -->
+    <div class="pizza-details mb-4">
+        <h4>Pizza Details:</h4>
+        <p><strong>Size:</strong> {{ pizza.size }}</p>
+        <p><strong>Crust:</strong> {{ pizza.crust }}</p>
+        <p><strong>Cheese:</strong> {{ pizza.cheese }}</p>
+        <p><strong>Toppings:</strong> 
+            {% for topping in pizza.toppings.all %}
+                {{ topping.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+
+    <div class="d-flex justify-content-center gap-2">
+        <a href="{% url 'index' %}" class="btn btn-primary">Back to Home</a>
+    </div>
+</div>
+{% endblock %}

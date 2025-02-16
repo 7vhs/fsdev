@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Your Previous Orders</h2>
+    {% if orders %}
+        <ul class="list-group">
+            {% for order in orders %}
+                <li class="list-group-item">
+                    <strong>Order Date:</strong> {{ order.created_at }}<br>
+                    <strong>Delivery Name:</strong> {{ order.delivery_name }}<br>
+                    <strong>Address:</strong> {{ order.delivery_address }}<br>
+                    <strong>Delivery Time:</strong> {{ order.delivery_time }}<br>
+                    <strong>Pizza Ordered:</strong> {{ order.pizza }}<br>
+                    <strong>Payment Info:</strong> {{ order.payment_info }}<br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You haven't placed any orders yet.</p>
+    {% endif %}
+    
+	<div class="d-flex justify-content-center gap-2">
+    <a href="{% url 'create' %}" class="btn btn-primary mt-3">Create New Order</a>
+	</div>
+</div>
+{% endblock %}

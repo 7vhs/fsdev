@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Pizza App{% endblock %}
+
+{% block content %}
+    <div class="container text-center mt-5">
+        <h1>Welcome to Pizzeria Bucciarati!</h1>
+        <p class="lead">Craving a delicious, fresh, and customizable pizza? You've come to the right place! Choose from a variety of sizes, 
+            crusts, sauces, cheeses, and toppings to craft your perfect pizza. Order now and get it delivered hot and fresh to your door!<br>
+            <strong>How it works:</strong></p>
+        <ol>
+            <li>Choose your size, crust, sauce, cheese, and toppings.</li>
+            <li>Place your order and enter your delivery details.</li>
+            <li>Sit back, relax, and get ready to enjoy your perfect pizza!</li>
+        </ol>
+
+        <div class="d-flex justify-content-center gap-2">
+            <a href="{% if user.is_authenticated %}{% url 'create' %}{% else %}{% url 'signup' %}{% endif %}" 
+               class="btn btn-success">
+                Start Your Order Now!
+            </a>
+        </div>        
+
+    </div>
+{% endblock %}

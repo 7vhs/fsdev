@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Build Your Perfect Pizza!</h2>
+    <p>Get creative with your order! Pick from our selection of fresh ingredients to design the pizza that satisfies your cravings. 
+        Whether you love classic flavors or bold new combinations, we've got something for you!</p>
+        
+    <form method="post">
+        {% csrf_token %}
+
+        <!-- Size -->
+        <div class="form-group mb-3">
+            <label for="{{ form.size.id_for_label }}" class="form-label">Size:</label>
+            {{ form.size }}
+        </div>
+
+        <!-- Crust -->
+        <div class="form-group mb-3">
+            <label for="{{ form.crust.id_for_label }}" class="form-label">Crust:</label>
+            {{ form.crust }}
+        </div>
+
+        <!-- Sauce -->
+        <div class="form-group mb-3">
+            <label for="{{ form.sauce.id_for_label }}" class="form-label">Sauce:</label>
+            {{ form.sauce }}
+        </div>
+
+        <!-- Cheese -->
+        <div class="form-group mb-3">
+            <label for="{{ form.cheese.id_for_label }}" class="form-label">Cheese:</label>
+            {{ form.cheese }}
+        </div>
+
+        <!-- Toppings -->
+        <div class="form-group mb-3">
+            <label for="{{ form.toppings.id_for_label }}" class="form-label">Toppings:</label>
+            <div class="topping-checkboxes">
+                {% for checkbox in form.toppings %}
+                    <div class="form-check">
+                        {{ checkbox }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>        
+
+        <div class="d-flex justify-content-center gap-2">
+            <button href="{% url 'delivery' %}" type="submit" class="btn btn-primary">Payment & Delivery details</button>
+            <button href="{% url 'index' %}" class="btn btn-primary">Cancel</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
